@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F8FAFC;
+    color: #0D1117;
+    @apply antialiased font-sans;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-40 disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn;
+    background-color: #7c3aed;
+    color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.08);
+  }
+  .btn-primary:hover:not(:disabled) { background-color: #6d28d9; }
+  .btn-primary:active:not(:disabled) { background-color: #5b21b6; }
+  .btn-primary { --tw-ring-color: #8b5cf680; }
+
+  .btn-secondary {
+    @apply btn border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100;
+    color: #21262D;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  .btn-secondary { --tw-ring-color: #8b5cf680; }
+
+  .btn-danger {
+    @apply btn;
+    background-color: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.08);
+  }
+  .btn-danger:hover:not(:disabled) { background-color: #b91c1c; }
+  .btn-danger { --tw-ring-color: #ef444480; }
+
+  .btn-ghost {
+    @apply btn hover:bg-slate-100;
+    color: #484F58;
+  }
+  .btn-ghost:hover { color: #0D1117; }
+  .btn-ghost { --tw-ring-color: #8b5cf680; }
+
+  /* Inputs */
+  .input {
+    @apply block w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm transition-colors;
+    color: #0D1117;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  }
+  .input::placeholder { color: #6E7681; }
+  .input:focus {
+    @apply outline-none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgb(124 58 237 / 0.15);
+  }
+
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wider mb-1.5;
+    color: #484F58;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl border border-slate-200;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  }
+  .card-hover {
+    @apply card transition-all duration-200;
+  }
+  .card-hover:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold tracking-wide;
+  }
+}
+
+/* ── Dark mode overrides ───────────────────────────────── */
+.dark body {
+  background-color: #0D1117;
+  color: #F0F6FC;
+}
+
+.dark .card {
+  background-color: #161B22;
+  border-color: #21262D;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4);
+}
+
+.dark .card-hover:hover {
+  border-color: #30363D;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.5);
+}
+
+.dark .input {
+  background-color: #0D1117;
+  border-color: #30363D;
+  color: #F0F6FC;
+  box-shadow: none;
+}
+
+.dark .input::placeholder {
+  color: #484F58;
+}
+
+.dark .input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgb(124 58 237 / 0.25);
+}
+
+.dark .label {
+  color: #6E7681;
+}
+
+.dark .btn-secondary {
+  background-color: #21262D;
+  border-color: #30363D;
+  color: #C9D1D9;
+  box-shadow: none;
+}
+
+.dark .btn-secondary:hover:not(:disabled) {
+  background-color: #30363D;
+}
+
+.dark .btn-ghost {
+  color: #8B949E;
+}
+
+.dark .btn-ghost:hover {
+  background-color: #21262D;
+  color: #F0F6FC;
+}
