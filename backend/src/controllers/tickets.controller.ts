@@ -3,7 +3,8 @@ import { prisma } from '../lib/prisma.js';
 import { AuthRequest } from '../middleware/auth.js';
 import { queueEmail } from '../jobs/email.queue.js';
 import { emailTemplates } from '../services/email.service.js';
-import { TicketStatus, Priority } from '@prisma/client';
+type TicketStatus = 'OPEN' | 'IN_PROGRESS' | 'RESOLVED' | 'CLOSED';
+type Priority = 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
 
 const ticketSelect = {
   id: true,

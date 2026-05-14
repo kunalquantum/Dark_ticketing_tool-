@@ -2,7 +2,7 @@ import { Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../lib/prisma.js';
 import { AuthRequest } from '../middleware/auth.js';
-import { Role } from '@prisma/client';
+type Role = 'ADMIN' | 'AGENT';
 
 export async function listUsers(_req: AuthRequest, res: Response) {
   const users = await prisma.user.findMany({

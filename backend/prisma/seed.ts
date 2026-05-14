@@ -1,4 +1,4 @@
-import { PrismaClient, Role, Priority, TicketStatus } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
@@ -14,7 +14,7 @@ async function main() {
       name: 'Admin User',
       email: 'admin@example.com',
       passwordHash: adminPassword,
-      role: Role.ADMIN,
+      role: 'ADMIN',
     },
   });
 
@@ -25,7 +25,7 @@ async function main() {
       name: 'Alice Agent',
       email: 'agent1@example.com',
       passwordHash: agentPassword,
-      role: Role.AGENT,
+      role: 'AGENT',
     },
   });
 
@@ -36,7 +36,7 @@ async function main() {
       name: 'Bob Agent',
       email: 'agent2@example.com',
       passwordHash: agentPassword,
-      role: Role.AGENT,
+      role: 'AGENT',
     },
   });
 
@@ -44,8 +44,8 @@ async function main() {
     data: {
       title: 'Cannot login to account',
       description: 'User reports being unable to log in after password reset.',
-      status: TicketStatus.OPEN,
-      priority: Priority.HIGH,
+      status: 'OPEN',
+      priority: 'HIGH',
       createdById: admin.id,
       assignedToId: agent1.id,
     },
@@ -55,8 +55,8 @@ async function main() {
     data: {
       title: 'Billing discrepancy on invoice #4521',
       description: 'Customer was charged twice for the same subscription.',
-      status: TicketStatus.IN_PROGRESS,
-      priority: Priority.URGENT,
+      status: 'IN_PROGRESS',
+      priority: 'URGENT',
       createdById: admin.id,
       assignedToId: agent2.id,
     },
